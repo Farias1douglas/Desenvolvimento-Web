@@ -24,12 +24,18 @@ def quarto():
 @app.route('/dados')
 def dados():
     return render_template('dados.html')
-
-@app.route('/recebedados', methods=['GET'])
+#Metodo POST#
+@app.route('/recebedados', methods=['POST'])
 def recebedados():
-    nome = request.args.get("nome")
-    email = request.args.get("email")
+    nome = request.form['nome']
+    email = request.form['email']
     return "{} - {}".format(nome, email)
+#Metodo GET#
+#@app.route('/recebedados', methods=['GET'])
+#def recebedados():#
+    #nome = request.args.get("nome")#
+    #email = request.args.get("email")
+    #return "{} - {}".format(nome, email)#
 #Abaixo ser teste de Condicionais#
 @app.route('/Verificador/<int:idade>')
 def verificador(idade):
